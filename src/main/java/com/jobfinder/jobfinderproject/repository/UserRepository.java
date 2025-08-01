@@ -9,9 +9,9 @@ import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    Optional<User> findByEmail(String email); // Giriş için kullanılıyor
+    Optional<User> findByEmail(String email);
 
     Page<User> findByMilitaryStatusIgnoreCase(String status, Pageable pageable); // "yapıldı" için
 
-    Page<User> findByBlockedTrue(Pageable pageable); // Blokeli kullanıcılar için
+    Page<User> findByBlockedTrue(Pageable pageable);
 }
