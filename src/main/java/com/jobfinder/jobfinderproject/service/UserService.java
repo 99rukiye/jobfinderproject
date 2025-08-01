@@ -23,7 +23,7 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
     private static final Logger logger = LoggerFactory.getLogger(UserService.class);
 
-    // ✅ Kullanıcı Kaydı
+
     public User registerUser(UserRegisterRequestDTO requestDTO) {
         User user = new User();
         user.setFullName(requestDTO.getFullName());
@@ -34,7 +34,7 @@ public class UserService {
         user.setEmail(requestDTO.getEmail());
         user.setPassword(passwordEncoder.encode(requestDTO.getPassword()));
 
-        // Rol bilgisine göre ayarlama
+
         String roleName = requestDTO.getRole() != null ? requestDTO.getRole().toUpperCase() : "USER";
 
         Role role = roleRepository.findByName(roleName)
@@ -42,7 +42,7 @@ public class UserService {
 
         user.setRoles(Set.of(role));
 
-        return userRepository.save(user); // 🔁 Eksik return eklendi
+        return userRepository.save(user);
     }
 
     public User updateUserProfile(String email, UserProfileUpdateDTO dto) {
