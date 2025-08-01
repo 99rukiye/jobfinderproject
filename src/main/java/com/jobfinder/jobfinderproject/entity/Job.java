@@ -14,10 +14,10 @@ public class Job {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String position; // Örnek: Java Developer
-    private String description; // İş tanımı
-    private String experienceRequired; // Örnek: 5 yıl
-    private String militaryStatusRequired; // Örnek: Yapıldı
+    private String position;
+    private String description;
+    private String experienceRequired;
+    private String militaryStatusRequired;
     private String location;
 
     @ManyToOne
