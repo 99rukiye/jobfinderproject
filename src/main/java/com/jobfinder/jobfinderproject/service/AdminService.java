@@ -20,28 +20,28 @@ public class AdminService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    // ✅ Admin kayıt işlemi
+
     public Admin registerAdmin(AdminRegisterRequestDTO dto) {
         Admin admin = Admin.builder()
                 .companyName(dto.getCompanyName())
                 .email(dto.getEmail())
-                .password(passwordEncoder.encode(dto.getPassword())) // Şifre maskeleniyor
+                .password(passwordEncoder.encode(dto.getPassword()))
                 .build();
 
         return adminRepository.save(admin);
     }
 
-    // ✅ Tüm kullanıcıları getir (sayfalama ile)
+
     public Page<User> getAllUsers(Pageable pageable) {
         return userRepository.findAll(pageable);
     }
 
-    // ✅ Askerliği yapılmış kullanıcıları getir
+
     public Page<User> getUsersWithMilitaryDone(Pageable pageable) {
         return userRepository.findByMilitaryStatusIgnoreCase("yapıldı", pageable);
     }
 
-    // ✅ 5 yıl deneyimi olan kullanıcıları getir
+
     public Page<User> getUsersWithFiveYearsExperience(Pageable pageable) {
         Page<User> allUsers = userRepository.findAll(pageable);
 
@@ -53,7 +53,7 @@ public class AdminService {
         return new PageImpl<>(filtered, pageable, filtered.size());
     }
 
-    // ✅ Bloke edilmiş kullanıcıları getir
+
     public Page<User> getBlockedUsers(Pageable pageable) {
         return userRepository.findByBlockedTrue(pageable);
     }
