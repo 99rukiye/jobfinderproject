@@ -46,7 +46,7 @@ public class AuthService {
             );
             logger.info("Giriş başarılı: {}", user.getEmail());
 
-            user.setFailedLoginAttempts(0); // doğru girişte sıfırla
+            user.setFailedLoginAttempts(0);
             userRepository.save(user);
 
             return jwtUtil.generateToken((UserDetails) auth.getPrincipal());
