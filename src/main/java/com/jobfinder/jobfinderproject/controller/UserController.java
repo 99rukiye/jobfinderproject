@@ -19,7 +19,7 @@ public class UserController {
     @PutMapping("/update")
     public ResponseEntity<User> updateUserProfile(@RequestBody UserProfileUpdateDTO dto,
                                                   @AuthenticationPrincipal UserDetails userDetails) {
-        String userEmail = userDetails.getUsername(); // email üzerinden kullanıcıyı bul
+        String userEmail = userDetails.getUsername();
         User updatedUser = userService.updateUserProfile(userEmail, dto);
         return ResponseEntity.ok(updatedUser);
     }
