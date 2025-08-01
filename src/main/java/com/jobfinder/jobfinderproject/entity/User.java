@@ -40,7 +40,7 @@ public class User {
         this.roles = roles;
     }
 
-    // ✅ Admin ile ilişki (eğer her user bir admine bağlıysa)
+
     @ManyToOne
     @JoinColumn(name = "admin_id", referencedColumnName = "id", nullable = true)
     private Admin admin;
