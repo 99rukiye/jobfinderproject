@@ -31,7 +31,7 @@ public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final CustomUserDetailsService userDetailsService;
 
-    // Güncel CORS ayarı
+
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
@@ -46,7 +46,7 @@ public class SecurityConfig {
         };
     }
 
-    // DaoAuthenticationProvider
+
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider(PasswordEncoder passwordEncoder) {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
@@ -55,13 +55,13 @@ public class SecurityConfig {
         return provider;
     }
 
-    // AuthenticationManager
+
     @Bean
     public AuthenticationManager authenticationManager(DaoAuthenticationProvider provider) {
         return new ProviderManager(List.of(provider));
     }
 
-    // SecurityFilterChain
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
