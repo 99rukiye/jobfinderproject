@@ -15,8 +15,8 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        // Roller eklenecekse burası genişletilir
-        return Collections.emptyList(); // şimdilik boş liste
+
+        return Collections.emptyList();
     }
 
     @Override
@@ -26,7 +26,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return user.getEmail(); // login için e-mail kullanıyoruz
+        return user.getEmail();
     }
 
     @Override
@@ -36,7 +36,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return !user.isBlocked(); // bloklanmışsa false döner
+        return !user.isBlocked();
     }
 
     @Override
