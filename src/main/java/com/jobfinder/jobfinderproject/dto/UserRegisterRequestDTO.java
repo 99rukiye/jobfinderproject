@@ -11,4 +11,5 @@ public class UserRegisterRequestDTO {
     private String cvText;
     private String email;
     private String password;
+    private String role;
 }
